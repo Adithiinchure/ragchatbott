@@ -27,7 +27,7 @@ vectordb.persist()
 llm = ChatGroq(model_name="deepseek-r1-distill-llama-70b")
 
 # Step 5: Setup retriever with k=3
-retriever = vectordb.as_retriever(search_kwargs={"k": 3})
+retriever = vectordb.as_retriever(search_kwargs={"k": 5})
 
 # Step 6: Define custom prompt
 prompt_text = """You are a helpful assistant. Use the following context to answer the question.
@@ -60,3 +60,4 @@ while True:
         # Generate response from LLM
         response = chain.invoke({"context": context, "question": question})
         print(f"\nQ: {question}\nA: {response['text']}")
+
